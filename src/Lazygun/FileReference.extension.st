@@ -21,7 +21,7 @@ FileReference >> findGitRepos [
 FileReference >> isGitRepo [
 	"Answer true if this file is a readable directory that is a git repository"
 
-	self isDirectory & self isReadable
-		ifFalse: [ ^ false ].
-	^ self entries anySatisfy: [ :entry | entry basename = '.git' ]
+	^ self isDirectory
+	  and: [ self isReadable
+	  and: [ self entries anySatisfy: [ :entry | entry basename = '.git' and: [ (self / '.git' / 'config') exists ] ] ] ]
 ]
