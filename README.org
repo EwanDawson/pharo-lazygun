@@ -1,3 +1,5 @@
 #+TITLE: Pharo Lazygun
 
+[[https://travis-ci.org/EwanDawson/pharo-lazygun.svg?branch=master]]
+
 A collection of utility classes and extension methods for use with [[https://pharo.org/][Pharo]] Smalltalk.
