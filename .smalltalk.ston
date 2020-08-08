@@ -3,7 +3,8 @@ SmalltalkCISpec {
     SCIMetacelloLoadSpec {
       #baseline : 'Lazygun',
       #directory : 'src',
-      #platforms : [ #pharo ]
+      #platforms : [ #pharo ],
+      #failOnZeroTests : false
     }
   ]
 }
