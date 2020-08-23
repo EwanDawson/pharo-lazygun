@@ -44,7 +44,7 @@ AuthInfo >> file: aFileReference [
 
 { #category : #accessing }
 AuthInfo >> login [
-	^ login
+	^ login ifNil: [ Smalltalk os environment at: #USER ]
 ]
 
 { #category : #accessing }
