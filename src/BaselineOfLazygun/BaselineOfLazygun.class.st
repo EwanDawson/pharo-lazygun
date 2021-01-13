@@ -7,6 +7,26 @@ Class {
 	#category : #BaselineOfLazygun
 }
 
+{ #category : #configuration }
+BaselineOfLazygun class >> setUpIDE [
+	| rootFolder |
+	rootFolder := FileLocator home / 'PharoData'.
+	
+	"Old-style GT"
+	GTPlayBook
+		cacheDirectory: (rootFolder / 'play-cache') ensureCreateDirectory;
+		stashDirectory: (rootFolder / 'play-stash') ensureCreateDirectory.
+	
+	"Gtoolkit"
+	Smalltalk globals
+		at: #XdPlaygroundSettings
+		ifPresent: [ :cls | cls directory: (rootFolder / 'xdocs') ensureCreateDirectory ].
+	
+	"Epicea"
+	OmSessionStore defaultBaseLocator: rootFolder / 'ombu-sessions'.
+	EpMonitor restart.
+]
+
 { #category : #baselines }
 BaselineOfLazygun >> baseline: spec [
 	<baseline>
