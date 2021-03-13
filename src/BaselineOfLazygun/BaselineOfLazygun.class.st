@@ -12,6 +12,8 @@ BaselineOfLazygun class >> setUpIDE [
 	| rootFolder |
 	rootFolder := FileLocator home / 'PharoData'.
 	
+	SystemResolver userLocalDirectory: rootFolder.
+	
 	"Old-style GT"
 	GTPlayBook
 		cacheDirectory: (rootFolder / 'play-cache') ensureCreateDirectory;
